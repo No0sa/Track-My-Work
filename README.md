@@ -18,3 +18,4 @@ Login → Home Dashboard → [Add Task / View Task Details] → Weekly Summary
 - Flutter (Dart)
 - Firebase (Auth, Firestore)
 - Provider (State Management)
+| Login Screen | Home Screen |
