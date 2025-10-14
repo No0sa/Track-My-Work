@@ -7,40 +7,97 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Track My Work'), centerTitle: true),
+      appBar: AppBar(
+        title: const Text('Track My Work'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications_outlined),
+            onPressed: () {},
+          ),
+        ],
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Good morning, Alex!',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              'Good morning, Alex! 👋',
+              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            const Text('Here’s what you’re working on today.'),
-            const SizedBox(height: 24),
-            Card(
-              child: ListTile(
-                leading: const Icon(Icons.list_alt),
-                title: const Text('My Programs'),
-                subtitle: const Text('View all your tracked work'),
-                trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-                onTap: () {
-                  Navigator.pushNamed(context, AppRoutes.programs);
-                },
-              ),
+            const Text(
+              'You have 3 programs in progress.',
+              style: TextStyle(color: Colors.grey, fontSize: 16),
+            ),
+            const SizedBox(height: 30),
+            _buildQuickActionCard(
+              context,
+              icon: Icons.list_alt_outlined,
+              title: 'My Programs',
+              subtitle: 'View and manage your work',
+              onTap: () => Navigator.pushNamed(context, AppRoutes.programs),
             ),
             const SizedBox(height: 16),
-            Card(
-              child: ListTile(
-                leading: const Icon(Icons.bar_chart),
-                title: const Text('Weekly Summary'),
-                subtitle: const Text('Review your progress'),
-                trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              ),
+            _buildQuickActionCard(
+              context,
+              icon: Icons.auto_graph_outlined,
+              title: 'Weekly Summary',
+              subtitle: 'Review your productivity',
+              onTap: () {},
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildQuickActionCard(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    required VoidCallback onTap,
+  }) {
+    return Card(
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(icon, color: Theme.of(context).colorScheme.primary),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      subtitle,
+                      style: TextStyle(color: Colors.grey[600], fontSize: 14),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
+            ],
+          ),
         ),
       ),
     );
