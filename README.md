@@ -58,5 +58,5 @@ Helps learners and professionals **track, organize, and reflect** on their work 
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/yourusername/track-my-work.git
+   git clone https://github.com/Noosa/track-my-work.git
    cd track-my-work
