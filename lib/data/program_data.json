@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "name": "Mobile App Development",
+    "description": "Build the 'Track My Work' app for MAD internship.",
+    "category": "Study",
+    "tasks": [
+      {"title": "Design wireframes", "completed": true},
+      {"title": "Implement login screen", "completed": true},
+      {"title": "Connect to mock API", "completed": false}
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Data Structures Course",
+    "description": "Complete Week 4 assignments on trees and graphs.",
+    "category": "Study",
+    "tasks": [
+      {"title": "Read chapter 6", "completed": true},
+      {"title": "Solve 5 practice problems", "completed": false}
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Freelance Project X",
+    "description": "Deliver logo and brand guidelines to client.",
+    "category": "Work",
+    "tasks": [
+      {"title": "Client call", "completed": true},
+      {"title": "Finalize logo", "completed": false},
+      {"title": "Send invoice", "completed": false}
+    ]
+  }
+]
